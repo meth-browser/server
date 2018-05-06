@@ -7,7 +7,13 @@ mode it uses the externally hosted production CouchDB instance.
 
 ## Development
 
-Deploy to https://zeit.co/now and note the deployed endpoint. Enter this into
+Deploy to https://zeit.co/now and note the deployed endpoint:
+
+```shell
+$ yarn deploy:dev
+```
+
+ Enter this into
 your [meth-browser]() `appConfig.json`.
 
 ## Production
