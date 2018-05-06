@@ -1,0 +1,39 @@
+<html>
+  <body>
+    Check the console!
+  </body>
+  <script type="text/javascript" src="node_modules/pouchdb/dist/pouchdb.js"></script>
+  <script type="text/javascript" src="node_modules/pouchdb/dist/pouchdb.memory.js"></script>
+  <script type="text/javascript">
+    const db = window.db = new PouchDB('test');
+
+    db.changes().on('change', function() {
+      console.log('got changes', arguments);
+    });
+
+    db.put({
+      _id: 'dave@gmail.com',
+      name: 'David',
+      age: 69
+    });
+
+    db.allDocs().then(console.log).catch(console.error)
+
+    const sync = window.sync = PouchDB.sync('test', 'http://localhost:3000/db/test', {
+      live: true,
+      retry: true
+    }).on('change', function (info) {
+      console.log('replication change', info)
+    }).on('paused', function (err) {
+      console.log('replication paused')
+    }).on('active', function () {
+      console.log('replication resumed')
+    }).on('denied', function (err) {
+      console.log('replication denied')
+    }).on('complete', function (info) {
+      console.log('replication complete')
+    }).on('error', function (err) {
+      console.log('replication error', err)
+    });
+  </script>
+</html>
