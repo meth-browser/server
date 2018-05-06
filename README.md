@@ -13,9 +13,8 @@ Deploy to https://zeit.co/now and note the deployed endpoint:
 $ yarn deploy:dev
 ```
 
- Enter this into
-your [meth-browser]() `appConfig.json`.
+Enter this into your [meth-browser](https://github.com/meth-browser/meth) app config (see the browser repo README for instructions).
 
 ## Production
 
-Deploy to https://sync.meth-browser.com
+_TODO_
