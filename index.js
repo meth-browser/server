@@ -11,8 +11,6 @@ const {
   COUCHDB_PASSWORD
 } = process.env
 
-console.log(process.env)
-
 const port = parseInt(PORT, 10) || 3000
 const dev = (NODE_ENV !== 'production')
 const app = next({ dev })
@@ -31,9 +29,9 @@ if (dev) {
     throw new Error("COUCHDB_ env vars must be set!")
   }
 
-  console.log(`Using HTTP proxy db (${COUCHDB_HOST})`)
+  console.log(`Using HTTP proxy db (${COUCHDB_URL})`)
 
-  ActualDb = require('http-pouchdb')(PouchDB, COUCHDB_HOST, {
+  ActualDb = require('http-pouchdb')(PouchDB, COUCHDB_URL, {
     auth: {
       username: COUCHDB_USERNAME,
       password: COUCHDB_PASSWORD

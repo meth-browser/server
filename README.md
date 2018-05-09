@@ -27,9 +27,9 @@ The production deployment needs to connect to our hosted production CouchDB
 instance. The following _secret_ variables thus need to be setup:
 
 ```shell
-$ now secret add couchdb_url <...URL...>
-$ now secret add couchdb_username <...username...>
-$ now secret add couchdb_password <...username...>
+$ yarn now secret add couchdb_url <...URL...>
+$ yarn now secret add couchdb_username <...username...>
+$ yarn now secret add couchdb_password <...username...>
 ```
 
 Once this is done, do:

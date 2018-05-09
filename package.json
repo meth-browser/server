@@ -10,7 +10,8 @@
     "start": "node index.js",
     "serve": "http-server .",
     "deploy:dev": "now -e NODE_ENV=development",
-    "deploy:prod": "now --regions bru -e NODE_ENV=production -e COUCHDB_URL=@couchdb_url -e COUCHDB_USERNAME=@couchdb_username -e COUCHDB_PASSWORD=@couchdb_password"
+    "deploy:prod": "now --regions bru -e NODE_ENV=production -e COUCHDB_URL=@couchdb_url -e COUCHDB_USERNAME=@couchdb_username -e COUCHDB_PASSWORD=@couchdb_password",
+    "now": "now"
   },
   "repository": {
     "type": "git",
