@@ -11,8 +11,10 @@ const {
   COUCHDB_PASSWORD
 } = process.env
 
+console.log(process.env)
+
 const port = parseInt(PORT, 10) || 3000
-const dev = NODE_ENV !== 'production'
+const dev = (NODE_ENV !== 'production')
 const app = next({ dev })
 const handle = app.getRequestHandler()
 

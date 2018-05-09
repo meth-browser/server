@@ -7,7 +7,11 @@ This uses [express-pouchdb](https://github.com/pouchdb/pouchdb-server#express-po
 In _dev_ (default) mode the process uses an in-memory PouchDB. In _production_
 mode it uses the externally hosted production CouchDB instance.
 
-## Development
+## Deployments
+
+**Remember to switch to the Meth team using `now switch`**
+
+### Development
 
 Deploy to https://zeit.co/now and note the deployed endpoint:
 
@@ -17,7 +21,7 @@ $ yarn deploy:dev
 
 Enter the deployed endpoint URL into your [meth-browser](https://github.com/meth-browser/meth) app config (see the browser repo README for instructions).
 
-## Production
+### Production
 
 The production deployment needs to connect to our hosted production CouchDB
 instance. The following _secret_ variables thus need to be setup:
