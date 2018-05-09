@@ -3,14 +3,42 @@ const express = require('express')
 const cors = require('cors')
 const next = require('next')
 
-const port = parseInt(process.env.PORT, 10) || 3000
-const dev = process.env.NODE_ENV !== 'production'
+const {
+  PORT,
+  NODE_ENV,
+  COUCHDB_URL,
+  COUCHDB_USERNAME,
+  COUCHDB_PASSWORD
+} = process.env
+
+const port = parseInt(PORT, 10) || 3000
+const dev = NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-const InMemPouchDB = PouchDB.defaults({
-  db: require('memdown')
-});
+let ActualDb
+
+if (dev) {
+  console.log('Using in-memory db')
+
+  ActualDb = PouchDB.defaults({
+    db: require('memdown')
+  })
+} else {
+  if (!COUCHDB_URL || !COUCHDB_USERNAME || !COUCHDB_PASSWORD) {
+    throw new Error("COUCHDB_ env vars must be set!")
+  }
+
+  console.log(`Using HTTP proxy db (${COUCHDB_HOST})`)
+
+  ActualDb = require('http-pouchdb')(PouchDB, COUCHDB_HOST, {
+    auth: {
+      username: COUCHDB_USERNAME,
+      password: COUCHDB_PASSWORD
+    }
+  })
+}
+
 
 app.prepare()
   .then(() => {
@@ -23,7 +51,7 @@ app.prepare()
       optionsSuccessStatus: 200
     }))
 
-    server.use('/db', require('express-pouchdb')(InMemPouchDB, {
+    server.use('/db', require('express-pouchdb')(ActualDb, {
       logPath: '/tmp/meth-express-pouchdb.log',
       mode: 'minimumForPouchDB'
     }))

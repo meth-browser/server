@@ -9,7 +9,8 @@
     "build": "next build",
     "start": "NODE_ENV=production node index.js",
     "serve": "http-server .",
-    "deploy:dev": "now"
+    "deploy:dev": "now",
+    "deploy:prod": "now -e NODE_ENV=production -e COUCHDB_URL=@couchdb_url -e COUCHDB_USERNAME=@couchdb_username -e COUCHDB_PASSWORD=@couchdb_password"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,7 @@
     "meth"
   ],
   "author": "Ramesh Nair <ram@hiddentao.com>",
-  "license": "AGPLv3",
+  "license": "AGPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/meth-browser/server/issues"
   },
@@ -28,6 +29,7 @@
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "express-pouchdb": "^4.0.0",
+    "http-pouchdb": "^4.0.0",
     "memdown": "^2.0.0",
     "next": "^6.0.0",
     "pouchdb": "^6.4.3",
