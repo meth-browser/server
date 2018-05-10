@@ -47,6 +47,6 @@
   },
   "now": {
     "name": "meth-server",
-    "alias": "meth-app"
+    "alias": "meth.app"
   }
 }
