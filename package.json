@@ -11,6 +11,8 @@
     "serve": "http-server .",
     "deploy:dev": "now -e NODE_ENV=development",
     "deploy:prod": "now --regions bru -e NODE_ENV=production -e COUCHDB_URL=@couchdb_url -e COUCHDB_USERNAME=@couchdb_username -e COUCHDB_PASSWORD=@couchdb_password",
+    "alias:prod": "now alias",
+    "deploy:ci": "[[ ''$TRAVIS_BRANCH' == 'master' ]] && yarn deploy:prod --token $NOW_TOKEN && yarn alias:prod --token $NOW_TOKEN",
     "now": "now"
   },
   "repository": {
@@ -42,5 +44,9 @@
   "devDependencies": {
     "http-server": "^0.11.1",
     "now": "^11.1.7"
+  },
+  "now": {
+    "name": "meth-server",
+    "alias": "meth-app"
   }
 }

@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+- "node"
+cache: yarn
+script: yarn build
+after_script: yarn deploy:ci
+env:
+  global:
+    secure: pSjiJoJwJIga/PgaK3NYzB/Bp05ZCMIX5wp6W0CPmpwzoZxj9N3LzfnOyrZvQR2cGxgxerEwsTZp9y48j3bFFe2O0RmrVX8nLWj0XfX5REBEZof+3gEcin+Azsac0R7kq4oFZuNOPtDL6lksSxgrWIbWu1pHoYpeST7kI/nf8VkHPTCMVfwCzBU8MB9u3+wOoKyrT4K3siUtfAfjvcI5O380nBd6ISjY2gJnXi5OPsgNOFk/fc0EgGAMDXE/BgoNo5yJi94yCGx4qrty4KKRIZqthVhBRg/yWl20ExdUnR5kjCX42gm+FFjDKxXi0ybb/URrxJDP8pOq0O/WOgUiTX10HYlzhSl7kIk4xQJJDCL8bR0YIUIcvUv5nwgRKuFL1L/uBpPh2LUazYL/GcxSe0tHJzBhJ5k1g0j8Uxekv/HqFhM/7BxFunaAmzrDhugRSAFKnCCEN3nLL82Ak432sJYU8XmmlSySEy/jnw/0sMOlte+MCD+fQVQoWNL+xuEdkzaM4vhLBU3Js51Xl28heukmxF6I/R1AS9rVhwZNQTr36XeckCX/pNn5khe4a7svgVqjY81dYZ2WpwGiGY/mUmyTchZKzeo+NnwRUOLopuavKlze5jzLFXDpv3M0DHdkvEkX2pioYUyWCMmUPBz1QW4+Yht1cUxgZAhl+/YdxDg=

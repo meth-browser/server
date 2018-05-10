@@ -7,6 +7,11 @@ This uses [express-pouchdb](https://github.com/pouchdb/pouchdb-server#express-po
 In _dev_ (default) mode the process uses an in-memory PouchDB. In _production_
 mode it uses the externally hosted production CouchDB instance.
 
+## Branches
+
+* `dev` - Default branch, where latest development takes place.
+* `master` - Production branch, deployed automatically via Travis CI.
+
 ## Running
 
 ```shell
