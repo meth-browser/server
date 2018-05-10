@@ -38,4 +38,10 @@ Once this is done, do:
 $ yarn deploy:prod
 ```
 
+Now alias to our domain name:
+
+```shell
+$ yarn now alias <...url to deployment...> meth.app
+```
+
 Once done the deployed backend should be accessible at https://meth.app

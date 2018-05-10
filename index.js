@@ -2,6 +2,8 @@ const PouchDB = require('pouchdb')
 const express = require('express')
 const cors = require('cors')
 const next = require('next')
+const endsWith = require('lodash.endswith')
+const basicAuthHeader = require('basic-authorization-header')
 
 const {
   PORT,
@@ -31,7 +33,9 @@ if (dev) {
 
   console.log(`Using HTTP proxy db (${COUCHDB_URL})`)
 
-  ActualDb = require('http-pouchdb')(PouchDB, COUCHDB_URL, {
+  const url = endsWith(COUCHDB_URL, '/') ? COUCHDB_URL : `${COUCHDB_URL}/`
+
+  ActualDb = require('./http-pouchdb')(PouchDB, url, {
     auth: {
       username: COUCHDB_USERNAME,
       password: COUCHDB_PASSWORD
