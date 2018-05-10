@@ -4,15 +4,19 @@ Live: https://meth.app
 
 This uses [express-pouchdb](https://github.com/pouchdb/pouchdb-server#express-pouchdb) to expose a sync endpoint for PouchDB.
 
-In _dev_ (default) mode the process uses an in-memory PouchDB. In _production_
-mode it uses the externally hosted production CouchDB instance.
-
 ## Branches
 
 * `dev` - Default branch, where latest development takes place.
 * `master` - Production branch, deployed automatically via Travis CI.
 
 ## Running
+
+Two running modes:
+
+* `development`: (default) the process uses an in-memory PouchDB.
+* `production`: uses the externally hosted production CouchDB instance.
+
+By default it runs in `development` mode:
 
 ```shell
 $ yarn dev
