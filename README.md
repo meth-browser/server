@@ -11,6 +11,8 @@ This uses [express-pouchdb](https://github.com/pouchdb/pouchdb-server#express-po
 
 ## Running
 
+_Note: Developed and tested with Node 8.10.0_
+
 Two running modes:
 
 * `development`: (default) the process uses an in-memory PouchDB.
