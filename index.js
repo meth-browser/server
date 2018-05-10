@@ -7,13 +7,14 @@ const basicAuthHeader = require('basic-authorization-header')
 
 const {
   PORT,
+  DEBUG,
   NODE_ENV,
   COUCHDB_URL,
   COUCHDB_USERNAME,
   COUCHDB_PASSWORD
 } = process.env
 
-const port = parseInt(PORT, 10) || 3000
+const port = parseInt(PORT, 10) || 3001
 const dev = (NODE_ENV !== 'production')
 const app = next({ dev })
 const handle = app.getRequestHandler()
@@ -57,7 +58,15 @@ app.prepare()
 
     server.use('/db', require('express-pouchdb')(ActualDb, {
       logPath: '/tmp/meth-express-pouchdb.log',
-      mode: 'minimumForPouchDB'
+      inMemoryConfig: true,
+      mode: 'minimumForPouchDB',
+      overrideMode: {
+        include: (DEBUG ? [
+          'config-infrastructure',
+          'logging-infrastructure',
+          'routes/http-log'
+        ] : [])
+      }
     }))
 
     server.get('*', (req, res) => {

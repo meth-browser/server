@@ -7,6 +7,18 @@ This uses [express-pouchdb](https://github.com/pouchdb/pouchdb-server#express-po
 In _dev_ (default) mode the process uses an in-memory PouchDB. In _production_
 mode it uses the externally hosted production CouchDB instance.
 
+## Running
+
+```shell
+$ yarn dev
+```
+
+To get HTTP request logging into `/tmp/meth-express-pouchdb.log`:
+
+```shell
+$ DEBUG=1 yarn dev
+```
+
 ## Deployments
 
 **Remember to switch to the Meth team using `now switch`**
