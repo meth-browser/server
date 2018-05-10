@@ -12,7 +12,7 @@
     "deploy:dev": "now -e NODE_ENV=development",
     "deploy:prod": "now --regions bru -e NODE_ENV=production -e COUCHDB_URL=@couchdb_url -e COUCHDB_USERNAME=@couchdb_username -e COUCHDB_PASSWORD=@couchdb_password",
     "alias:prod": "now alias",
-    "deploy:ci": "test \"$TRAVIS_BRANCH\" = \"master\" && yarn deploy:prod --team meth --token $NOW_TOKEN && yarn alias:prod --team meth --token $NOW_TOKEN",
+    "deploy:ci": "/bin/sh -c 'if [ \"$TRAVIS_BRANCH\" = \"master\" ]; then yarn deploy:prod --team meth --token $NOW_TOKEN && yarn alias:prod --team meth --token $NOW_TOKEN; fi'",
     "now": "now"
   },
   "repository": {
