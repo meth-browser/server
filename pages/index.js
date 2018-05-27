@@ -1,4 +1,4 @@
-const githubRepoUrl = 'https://github.com/meth-browser/app'
+const githubRepoUrl = 'https://github.com/meth/app'
 
 export default () => (
   <div>
