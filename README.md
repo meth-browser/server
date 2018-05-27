@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/meth-browser/server.svg?branch=master)](https://travis-ci.org/meth-browser/server)
+
 # Meth backend
 
 Live: https://meth.app
