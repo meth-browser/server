@@ -1,0 +1,7 @@
+{
+  "name": "meth-server",
+  "alias": "sync-dev.meth.app",
+  "env": {
+    "NODE_ENV": "development"
+  }
+}
