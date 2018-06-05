@@ -9,12 +9,12 @@
     "build": "next build",
     "start": "node index.js",
     "serve": "http-server .",
-    "deploy:dev": "now -e NODE_ENV=development --regions bru",
-    "deploy:prod": "now --regions bru -e NODE_ENV=production -e COUCHDB_URL=@couchdb_url -e COUCHDB_USERNAME=@couchdb_username -e COUCHDB_PASSWORD=@couchdb_password",
+    "deploy:dev": "now -f --local-config=deploy/now.dev.json --regions bru",
+    "deploy:prod": "now -f --local-config=deploy/now.prod.json --regions bru -e COUCHDB_URL=@couchdb_url -e COUCHDB_USERNAME=@couchdb_username -e COUCHDB_PASSWORD=@couchdb_password",
     "deploy": "/bin/sh -c 'if [ \"$TRAVIS_BRANCH\" = \"master\" ]; then yarn deploy:prod; else yarn deploy:dev; fi'",
-    "alias": "now alias",
-    "release:dev": "yarn deploy:dev --team meth --token $NOW_TOKEN && yarn alias --team meth --token $NOW_TOKEN sync-dev.meth.app",
-    "release:prod": "yarn deploy:prod --team meth --token $NOW_TOKEN && yarn alias --team meth --token $NOW_TOKEN sync.meth.app",
+    "alias": "now alias --team meth --token $NOW_TOKEN",
+    "release:dev": "yarn deploy:dev --team meth --token $NOW_TOKEN && yarn alias --local-config=deploy/now.dev.json",
+    "release:prod": "yarn deploy:prod --team meth --token $NOW_TOKEN && yarn alias --local-config=deploy/now.prod.json",
     "release": "/bin/sh -c 'if [ \"$TRAVIS_BRANCH\" = \"master\" ]; then yarn release:prod; else yarn release:dev; fi'",
     "now": "now"
   },
@@ -47,9 +47,5 @@
   "devDependencies": {
     "http-server": "^0.11.1",
     "now": "^11.1.7"
-  },
-  "now": {
-    "name": "meth-server",
-    "alias": "meth.app"
   }
 }
