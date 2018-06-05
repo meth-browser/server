@@ -8,14 +8,14 @@ const basicAuthHeader = require('basic-authorization-header')
 const {
   PORT,
   DEBUG,
-  NODE_ENV,
+  APP_MODE,
   COUCHDB_URL,
   COUCHDB_USERNAME,
   COUCHDB_PASSWORD
 } = process.env
 
 const port = parseInt(PORT, 10) || 3001
-const dev = (NODE_ENV !== 'production')
+const dev = (APP_MODE !== 'production')
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
