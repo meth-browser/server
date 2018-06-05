@@ -35,7 +35,7 @@ $ DEBUG=1 yarn dev
 
 ## Deployments
 
-**Remember to switch to the Meth team using `now switch`**
+Remember to switch to the Meth team using `now switch`.
 
 ### Development
 
