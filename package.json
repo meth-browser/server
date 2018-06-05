@@ -9,10 +9,13 @@
     "build": "next build",
     "start": "node index.js",
     "serve": "http-server .",
-    "deploy:dev": "now -e NODE_ENV=development",
+    "deploy:dev": "now -e NODE_ENV=development --regions bru",
     "deploy:prod": "now --regions bru -e NODE_ENV=production -e COUCHDB_URL=@couchdb_url -e COUCHDB_USERNAME=@couchdb_username -e COUCHDB_PASSWORD=@couchdb_password",
-    "alias:prod": "now alias",
-    "deploy:ci": "/bin/sh -c 'if [ \"$TRAVIS_BRANCH\" = \"master\" ]; then yarn deploy:prod --team meth --token $NOW_TOKEN && yarn alias:prod --team meth --token $NOW_TOKEN; fi'",
+    "deploy": "/bin/sh -c 'if [ \"$TRAVIS_BRANCH\" = \"master\" ]; then yarn deploy:prod; else yarn deploy:dev; fi'",
+    "alias": "now alias",
+    "release:dev": "yarn deploy:dev --team meth --token $NOW_TOKEN && yarn alias --team meth --token $NOW_TOKEN sync-dev.meth.app",
+    "release:prod": "yarn deploy:prod --team meth --token $NOW_TOKEN && yarn alias --team meth --token $NOW_TOKEN sync.meth.app",
+    "release": "/bin/sh -c 'if [ \"$TRAVIS_BRANCH\" = \"master\" ]; then yarn release:prod; else yarn release:dev; fi'",
     "now": "now"
   },
   "repository": {

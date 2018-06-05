@@ -2,14 +2,15 @@
 
 # Meth backend
 
-Live: https://meth.app
+* Development deployment: https://sync-dev.meth.app (in-memory db)
+* Production deployment: https://sync.meth.app (persisted filesystem db)
 
 This uses [express-pouchdb](https://github.com/pouchdb/pouchdb-server#express-pouchdb) to expose a sync endpoint for PouchDB.
 
 ## Branches
 
-* `dev` - Default branch, where latest development takes place.
-* `master` - Production branch, deployed automatically via Travis CI.
+* `dev` - Default branch, where latest development takes place, deployed to `https://sync-dev.meth.app`
+* `master` - Production branch, deployed automatically via Travis CI, deployed to `https://sync.meth.app`
 
 ## Running
 
