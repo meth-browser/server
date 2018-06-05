@@ -11,5 +11,8 @@ export default () => (
     ) : (
       <p>This is the development sync server, utilising in-memory sync storage</p>
     )}
+    <pre>
+      {JSON.stringify(process.env, null, 2)}
+    </pre>
   </div>
 )

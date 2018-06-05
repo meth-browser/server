@@ -3832,9 +3832,9 @@ normalize-space-x@^3.0.0:
     trim-x "^3.0.0"
     white-space-x "^3.0.0"
 
-now@^11.1.7:
-  version "11.1.7"
-  resolved "https://registry.yarnpkg.com/now/-/now-11.1.7.tgz#161bbf0c6ed090fb5e66ec8b1650926e09a41896"
+now@^11.2.1:
+  version "11.2.1"
+  resolved "https://registry.yarnpkg.com/now/-/now-11.2.1.tgz#33fea6a78a464e554780e4a6134d1a98b7e9f49e"
 
 npm-bundled@^1.0.1:
   version "1.0.3"
