@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/meth-browser/server.svg?branch=master)](https://travis-ci.org/meth-browser/server)
 
-# Meth backend
+# Meth sync server
 
 * Development deployment: https://sync-dev.meth.app (in-memory db)
 * Production deployment: https://sync.meth.app (persisted filesystem db)
