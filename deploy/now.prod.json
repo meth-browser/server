@@ -2,6 +2,7 @@
   "name": "meth-server",
   "alias": "sync.meth.app",
   "env": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "APP_MODE": "production"
   }
 }

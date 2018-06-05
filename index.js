@@ -8,20 +8,24 @@ const basicAuthHeader = require('basic-authorization-header')
 const {
   PORT,
   DEBUG,
-  NODE_ENV,
+  APP_MODE,
   COUCHDB_URL,
   COUCHDB_USERNAME,
-  COUCHDB_PASSWORD
+  COUCHDB_PASSWORD,
+  NODE_ENV
 } = process.env
 
 const port = parseInt(PORT, 10) || 3001
-const dev = (NODE_ENV !== 'production')
-const app = next({ dev })
+const appModeIsDev = (APP_MODE !== 'production')
+const nodeEnvIsDev = (NODE_ENV !== 'production')
+
+const app = next({ dev: nodeEnvIsDev })
+
 const handle = app.getRequestHandler()
 
 let ActualDb
 
-if (dev) {
+if (appModeIsDev) {
   console.log('Using in-memory db')
 
   ActualDb = PouchDB.defaults({
