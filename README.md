@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/meth-browser/server.svg?branch=master)](https://travis-ci.org/meth-browser/server)
+[![Build Status](https://travis-ci.org/meth/server.svg?branch=master)](https://travis-ci.org/meth/server)
 
 # Meth sync server
 
