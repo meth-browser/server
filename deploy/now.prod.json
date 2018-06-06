@@ -1,6 +1,12 @@
 {
   "name": "meth-server",
   "alias": "sync.meth.app",
+  "scale": {
+    "bru1": {
+      "min": 1,
+      "max": "auto"
+    }
+  },
   "env": {
     "NODE_ENV": "production",
     "APP_MODE": "production"
