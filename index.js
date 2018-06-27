@@ -5,6 +5,8 @@ const next = require('next')
 const endsWith = require('lodash.endswith')
 const basicAuthHeader = require('basic-authorization-header')
 
+const appUpdates = require('./appUpdates')
+
 const {
   PORT,
   DEBUG,
@@ -72,6 +74,8 @@ app.prepare()
         ] : [])
       }
     }))
+
+    server.use('/appUpdates', appUpdates())
 
     server.get('*', (req, res) => {
       return handle(req, res)
