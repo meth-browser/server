@@ -24,18 +24,33 @@ exports.fetchMobileAppVersion = async (os, appId) => {
 }
 
 let _fetchPromise = null
-exports.fetchDesktopReleaseDetails = () => {
-  if (_fetchPromise) {
-    return _fetchPromise
+exports.fetchDesktopReleaseDetails = assetFileExtension => {
+  if (!_fetchPromise) {
+    _fetchPromise = got('https://api.github.com/repos/ethereum/mist/releases/latest')
   }
 
-  _fetchPromise = got('https://api.github.com/repos/ethereum/mist/releases/latest')
+  return _fetchPromise
     .then(({ body }) => {
       delete _fetchPromise
 
+      const data = JSON.parse(body)
+
+      // if not found
+      if (!data.tag_name) {
+        throw new Error('No release found')
+      }
+
+      const asset = data.assets.find(({ browser_download_url: url }) => (
+        url.endsWith(assetFileExtension)
+      ))
+
+      if (!asset) {
+        throw new Error('No matching asset found')
+      }
+
       return {
-        version: JSON.parse(body).tag_name,
-        updateUrl: 'https://meth.app/download'
+        version: data.tag_name,
+        updateUrl: asset.browser_download_url
       }
     })
     .catch(err => {
@@ -45,6 +60,4 @@ exports.fetchDesktopReleaseDetails = () => {
 
       throw new Error('Failed to fetch desktop release details')
     })
-
-  return _fetchPromise
 }

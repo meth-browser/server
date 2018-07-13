@@ -1,3 +1,3 @@
 const { fetchDesktopReleaseDetails } = require('./utils')
 
-exports.fetch = fetchDesktopReleaseDetails
+exports.fetch = async () => fetchDesktopReleaseDetails('.exe')
