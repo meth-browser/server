@@ -21,6 +21,12 @@ const check = () => {
         android, ios, win, mac, linux
       }
 
+      Object.keys(lastUpdate).forEach(key => {
+        if (lastUpdate[key].version.startsWith('v')) {
+          lastUpdate[key].version = lastUpdate[key].version.substr(1)
+        }
+      })
+
       console.log('App update:')
       console.log(lastUpdate)
     })

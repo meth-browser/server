@@ -48,14 +48,8 @@ exports.fetchDesktopReleaseDetails = assetFileExtension => {
         throw new Error('No matching asset found')
       }
 
-      let version = data.tag_name
-      if (version.startsWith('v')) {
-        version = version.substr(1)
-      }
-
-
       return {
-        version,
+        version: data.tag_name,
         updateUrl: asset.browser_download_url
       }
     })
